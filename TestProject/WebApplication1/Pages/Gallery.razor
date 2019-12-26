@@ -1,0 +1,38 @@
+@page "/"
+
+@using WebApplication1.Data
+<h1>Today`s selection of movies</h1>
+
+@if (Movies == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+
+            @foreach (var Mov in Movies.Movies)
+            {
+               <div class="column">
+                <div class="content">
+                <img src=@Mov.Image   style="width:100%">
+                <h3>@Mov.Name</h3>
+                <p>@Mov.Summary</p>
+                </div>
+            </div>
+            }
+
+    </div>
+
+
+
+}
+@code  {
+
+        private MovieService Movies = new MovieService();
+
+
+}
+
+
+
